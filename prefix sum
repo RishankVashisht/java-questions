@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class PrefixSum {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user for the size of the array
+        System.out.print("Enter the size of the array: ");
+        int n = scanner.nextInt();
+
+        int[] arr = new int[n];
+        int[] prefixSum = new int[n];
+
+        // Input array elements
+        System.out.println("Enter the array elements: ");
+        for (int i = 0; i < n; i++) {
+            arr[i] = scanner.nextInt();
+        }
+
+        // Calculate the prefix sum
+        prefixSum[0] = arr[0];
+        for (int i = 1; i < n; i++) {
+            prefixSum[i] = prefixSum[i - 1] + arr[i];
+        }
+
+        // Output the prefix sum array
+        System.out.println("Prefix Sum Array: ");
+        for (int i = 0; i < n; i++) {
+            System.out.print(prefixSum[i] + " ");
+        }
+
+        scanner.close();
+    }
+}
